@@ -461,9 +461,9 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "calc.l"
-#line 2 "calc.l"
-#include "calc.tab.h"
+#line 1 "./calcu.l"
+#line 2 "./calcu.l"
+#include "calcu.tab.h"
 #line 468 "lex.yy.c"
 
 #define INITIAL 0
@@ -651,7 +651,7 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 5 "calc.l"
+#line 5 "./calcu.l"
 
 
 #line 658 "lex.yy.c"
@@ -739,64 +739,63 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 7 "calc.l"
-;   /* Ignore whitespace */
+#line 7 "./calcu.l"
+;
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 8 "calc.l"
-{
-                      yylval.dval = atof(yytext);
-                      return NUMBER;
+#line 8 "./calcu.l"
+{ yylval.dval = atof(yytext);
+                    return NUMBER;
                     }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 12 "calc.l"
-{ return '+'; }
+#line 11 "./calcu.l"
+{return '+';}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 13 "calc.l"
-{ return '-'; }
+#line 12 "./calcu.l"
+{return '-';}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 14 "calc.l"
-{ return '*'; }
+#line 13 "./calcu.l"
+{return '*';}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 15 "calc.l"
-{ return '/'; }
+#line 14 "./calcu.l"
+{return '/';}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 16 "calc.l"
-{ return '('; }
+#line 15 "./calcu.l"
+{return '(';}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 17 "calc.l"
-{ return ')'; }
+#line 16 "./calcu.l"
+{return ')';}
 	YY_BREAK
 case 9:
 /* rule 9 can match eol */
 YY_RULE_SETUP
-#line 18 "calc.l"
-{ return EOL; }
+#line 17 "./calcu.l"
+{return EOL;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 19 "calc.l"
-{ printf("Unknown character: %s\n", yytext); }
+#line 18 "./calcu.l"
+{printf("Unknown character : %s\n", yytext);}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 21 "calc.l"
+#line 20 "./calcu.l"
 ECHO;
 	YY_BREAK
-#line 800 "lex.yy.c"
+#line 799 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1794,11 +1793,11 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 21 "calc.l"
+#line 20 "./calcu.l"
 
 
 
-int yywrap() {
+int yywrap(){
     return 1;
 }
 

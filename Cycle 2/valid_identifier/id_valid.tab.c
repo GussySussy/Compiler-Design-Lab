@@ -67,7 +67,7 @@
 /* Copy the first part of user declarations.  */
 
 /* Line 189 of yacc.c  */
-#line 1 ".\\id_valid.y"
+#line 1 "id_valid.y"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -117,7 +117,7 @@ typedef union YYSTYPE
 {
 
 /* Line 214 of yacc.c  */
-#line 11 ".\\id_valid.y"
+#line 11 "id_valid.y"
 
     char *str;
 
@@ -418,7 +418,7 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    19,    19,    20,    24,    25
+       0,    19,    19,    21,    25,    26
 };
 #endif
 
@@ -1322,14 +1322,14 @@ yyreduce:
         case 4:
 
 /* Line 1464 of yacc.c  */
-#line 24 ".\\id_valid.y"
+#line 25 "id_valid.y"
     { printf("Valid variable: %s\n", (yyvsp[(1) - (1)].str)); free((yyvsp[(1) - (1)].str)); ;}
     break;
 
   case 5:
 
 /* Line 1464 of yacc.c  */
-#line 25 ".\\id_valid.y"
+#line 26 "id_valid.y"
     { yyerrok; ;}
     break;
 
@@ -1548,7 +1548,7 @@ yyreturn:
 
 
 /* Line 1684 of yacc.c  */
-#line 28 ".\\id_valid.y"
+#line 29 "id_valid.y"
 
 
 void yyerror(const char *s) {
