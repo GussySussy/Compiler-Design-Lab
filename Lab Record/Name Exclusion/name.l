@@ -1,35 +1,50 @@
 %{ 
-#include<stdio.h> 
-#include<string.h> 
-int i = 0;
-int flag=0; 
-char name[50]="";
+#include <stdio.h> 
+#include <string.h> 
+#include <ctype.h> 
+
+void to_lowercase(char *str) {
+    for(int i = 0; str[i]; i++){
+        str[i] = tolower(str[i]);
+    }
+}
+
+int flag = 0; 
+char name[50] = "";
 %} 
 
 %% 
-[a-zA-Z]* {
-	for(i=0;i<yyleng;i++){
-		if(yytext[i]=='n' && yytext[i+1]=='a' && yytext[i+2]=='n' && yytext[i+3]=='d'){
-			flag=1;
-		}
-	}
-	strcpy(name,yytext);
+[a-zA-Z]+ {
+    strcpy(name, yytext);
+    to_lowercase(name);
+    if (strstr(name, "gour") != NULL) {
+        flag = 1;
+    } else {
+        flag = 0;
+    }
 }
-[\n] {
- if(flag==1){printf("%s contains 4 letters of name as substring\n",name);
- flag=0;
- strcpy(name,"");
- printf("Enter the string    ");
-}else{
-printf("%s does not contain 4 letters of name as  substring\n",name);
-strcpy(name,"");
-printf("Enter the string    ");
+
+[\n]+ {
+    if(flag == 1){
+        printf("\"%s\" contains \"gour\" as a substring.\n", yytext);
+    }
+    else{
+        printf("\"%s\" does not contain \"gour\" as a substring.\n", yytext);
+    }
+    printf("Enter the string: ");
 }
-}
+
+. { }
+
 %% 
+
+int yywrap(void) {
+    return 1;
+}
+
 int main() 
-{ printf("Enter the string    ");
-	// The function that starts the analysis 
-	yylex(); 
-	return 0; 
+{ 
+    printf("Enter the string: ");
+    yylex(); 
+    return 0; 
 }
