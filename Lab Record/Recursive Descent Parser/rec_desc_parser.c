@@ -10,6 +10,7 @@ void t();
 void f();
 void advance();
 int n = 0;
+
 void e()
 {
     strcpy(op, "TE'");
@@ -18,6 +19,7 @@ void e()
     t();
     e_prime();
 }
+
 void e_prime()
 {
     int i, n = 0, l;
@@ -55,6 +57,7 @@ void e_prime()
         printf("E'->e");
     }
 }
+
 void t()
 {
     int i, n = 0, l;

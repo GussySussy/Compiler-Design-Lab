@@ -159,7 +159,7 @@ void main()
                 printf("NULL\n");
             }
         }
-        Printf("\n");
+        printf("\n");
     }
     printf("\n\nStates of DFA:\n");
     for (i = 0; i <= complete; i++)

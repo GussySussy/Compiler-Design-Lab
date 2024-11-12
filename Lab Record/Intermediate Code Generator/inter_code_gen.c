@@ -18,9 +18,10 @@ void gen_code_for_operator(char *inp, char operator, char * reg)
         i++;
         j++;
     }
-    temp[++j] = '\0';
+    temp[j] = '\0';
     strcpy(inp, temp);
 }
+
 void gen_code(char *inp)
 {
     // Operator precedence - /, *, +, -, =
@@ -31,6 +32,7 @@ void gen_code(char *inp)
     gen_code_for_operator(inp, '-', &reg);
     gen_code_for_operator(inp, '=', &reg);
 }
+
 int main()
 {
     char inp[100];

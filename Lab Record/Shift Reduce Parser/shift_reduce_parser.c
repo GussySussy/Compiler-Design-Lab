@@ -2,9 +2,11 @@
 #include <string.h>
 #define MAX_INPUT 100
 #define MAX_STACK 100
+
 void check();
 char input[MAX_INPUT], stack[MAX_STACK], action[20];
 int input_len, stack_top = -1;
+
 int main()
 {
     printf("GRAMMAR is:\nE -> E+E | E*E | (E) | id\n");
@@ -20,7 +22,7 @@ int main()
             stack[++stack_top] = 'd';
             stack[stack_top + 1] = '\0';
             printf("$%s\t\t%s$\t\tSHIFT->id\n", stack, input + i + 2);
-            check();
+            check(i);
             i++; // Skip the 'd' in the next iteration
         }
         else
@@ -28,7 +30,7 @@ int main()
             stack[++stack_top] = input[i];
             stack[stack_top + 1] = '\0';
             printf("$%s\t\t%s$\t\tSHIFT->%c\n", stack, input + i + 1, input[i]);
-            check();
+            check(i);
         }
     }
     if (stack_top == 0 && stack[0] == 'E')
@@ -41,9 +43,9 @@ int main()
     }
     return 0;
 }
-void check()
+void check(int i)
 {
-    int i, j, handle_size;
+    int handle_size;
     char *handle;
     while (1)
     {
@@ -75,6 +77,6 @@ void check()
         stack_top -= handle_size - 1;
         stack[stack_top] = 'E';
         stack[stack_top + 1] = '\0';
-        printf("$%s\t\t%s$\t\tREDUCE->%s\n", stack, input + strlen(input), handle);
+        printf("$%s\t\t%s$\t\tREDUCE->%s\n", stack, input + i + handle_size, handle);
     }
 }

@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 struct node
 {
     int st;
     struct node *link;
 };
+
 static int set[20], nostate, noalpha, s, notransition, nofinal, start, finalstate[20], c, r, buffer[20], newstate;
 char alphabet[20];
 static int e_closure[20][20] = {0};
@@ -27,6 +29,7 @@ int findalpha(char c)
             return i;
     return (999);
 }
+
 void insert_trantbl(int r, char c, int s)
 {
     int j;
@@ -42,6 +45,7 @@ void insert_trantbl(int r, char c, int s)
     temp->link = transition[r][j];
     transition[r][j] = temp;
 }
+
 void findclosure(int x, int sta)
 {
     struct node *temp;
@@ -131,12 +135,15 @@ void main()
     printf("Equivalent NFA without epsilon\n");
     printf("-----------------------------------\n");
     printf("Start state: q1");
+
     printf("\nAlphabets:");
     for (i = 0; i < noalpha; i++)
         printf("%c ", alphabet[i]);
+
     printf("\nStates:");
     for (i = 1; i <= nostate; i++)
         printf("\n\tq%d", i);
+
     printf("\nTransitions:\n");
     for (i = 1; i <= nostate; i++)
     {
